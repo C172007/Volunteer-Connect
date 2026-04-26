@@ -358,7 +358,7 @@ export default function Dashboard() {
                   📍 Live Need Locations — Mumbai
                 </div>
                 <div style={{ fontSize:12, color:theme.colors.textMuted }}>
-                  Click any marker for details · OpenStreetMap (free, no API key)
+                  Click any marker for details · OpenStreetMap 
                 </div>
               </div>
               <span style={mapBadgeStyle}>🟢 Live</span>
@@ -457,7 +457,7 @@ const mapBadgeStyle = {
 /* ============================================================
    🗺 MAP HEIGHT — Change height here
    ============================================================ */
-const mapContainerStyle = { height:340, width:"100%" };
+const mapContainerStyle = { height:500, width:"100%" };
 const mapLoadingStyle   = {
   height:340, display:"flex", flexDirection:"column", alignItems:"center",
   justifyContent:"center", gap:12, background:theme.colors.surfaceAlt,

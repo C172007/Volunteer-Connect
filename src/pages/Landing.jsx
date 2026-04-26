@@ -222,6 +222,54 @@ function Counter({ value, suffix }) {
 /* ============================================================
    🏠 MAIN LANDING PAGE COMPONENT
    ============================================================ */
+
+/* ============================================================
+   🎬 VIDEO OR PLACEHOLDER COMPONENT
+   Shows your demo.mp4 if it exists, otherwise shows a styled
+   placeholder so the layout never looks broken during dev.
+   ============================================================ */
+function VideoOrPlaceholder() {
+  const [hasVideo, setHasVideo] = useState(true);
+  return (
+    <>
+      {hasVideo && (
+        <video
+          src="/demo.mp4"
+          autoPlay loop muted playsInline
+          style={videoStyle}
+          onError={() => setHasVideo(false)}
+        />
+      )}
+      {!hasVideo && (
+        /* ============================================================
+           🎬 VIDEO PLACEHOLDER — Shown until you add demo.mp4
+           Change placeholder text / icon here
+           ============================================================ */
+        <div style={videoPlaceholderStyle}>
+          <div style={{ position:"relative", zIndex:1, textAlign:"center" }}>
+            <div style={{ fontSize:40, marginBottom:12 }}>🎬</div>
+            <div style={{ fontFamily:"'Fraunces', serif", fontSize:15, fontWeight:700, color:C.text, marginBottom:8 }}>
+              Demo video goes here
+            </div>
+            <div style={{ fontSize:12, color:C.textSub, lineHeight:1.65, maxWidth:200 }}>
+              Record 30 sec screen capture:<br/>
+              Submit Need → AI → Match
+            </div>
+            <div style={{ marginTop:14, background:C.primaryL, borderRadius:8, padding:"7px 14px", fontSize:11, color:C.primary, fontWeight:600, display:"inline-block" }}>
+              Save as /public/demo.mp4
+            </div>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80"
+            alt=""
+            style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", borderRadius:20, opacity:0.12 }}
+          />
+        </div>
+      )}
+    </>
+  );
+}
+
 export default function Landing() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
@@ -361,9 +409,7 @@ export default function Landing() {
 
               {/* ── Main hero photo ── */}
               {/* ============================================================
-                  📸 HERO PHOTO — Change Unsplash photo here
-                  Current: volunteers working together
-                  Replace the URL with any Unsplash image URL
+                  📸 HERO PHOTO — Change Unsplash URL here if needed
                   ============================================================ */}
               <div style={heroPhotoWrapStyle}>
                 <img
@@ -426,6 +472,58 @@ export default function Landing() {
               ============================================================ */}
           <LiveTicker />
 
+        </section>
+
+        {/* ══════════════════════════════════════════════════════
+            🎬 VIDEO SECTION — Full width, between hero and stats
+            ══════════════════════════════════════════════════════ */}
+        {/* ============================================================
+            🎬 VIDEO SECTION — Change heading, subtext, or video here
+            To add your video: drop demo.mp4 into /public folder
+            ============================================================ */}
+        <section style={videoSectionStyle}>
+          <div style={videoSectionInnerStyle}>
+
+            {/* Left: label + heading + steps */}
+            <div style={videoSectionLeftStyle}>
+              <div style={sectionLabelStyle}>See It In Action</div>
+              {/* ============================================================
+                  🎨 VIDEO SECTION HEADING — Change text here
+                  ============================================================ */}
+              <h2 style={videoSectionTitleStyle}>
+                From need to volunteer<br/>
+                <span style={{ color:C.primary }}>in 3 simple steps</span>
+              </h2>
+              {/* ============================================================
+                  📋 VIDEO STEPS LIST — Change step text here
+                  ============================================================ */}
+              {[
+                { num:"01", text:"NGO types the need in plain language" },
+                { num:"02", text:"Gemini AI extracts skills, urgency and count" },
+                { num:"03", text:"Ranked volunteer list appears in seconds" },
+              ].map(s => (
+                <div key={s.num} style={videoStepRowStyle}>
+                  <div style={videoStepNumStyle}>{s.num}</div>
+                  <div style={{ fontSize:14, color:C.textSub, lineHeight:1.5 }}>{s.text}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right: video player */}
+            <div style={videoPlayerWrapStyle}>
+              {/* Video badge */}
+              <div style={videoBadgeStyle}>
+                <span style={{ width:7, height:7, borderRadius:"50%", background:"#ef4444", animation:"blink 1.5s ease-in-out infinite", display:"inline-block" }}/>
+                &nbsp; Live demo — 30 sec loop
+              </div>
+              {/* ============================================================
+                  🎬 VIDEO — drops demo.mp4 from /public automatically
+                  Placeholder shown until file is added
+                  ============================================================ */}
+              <VideoOrPlaceholder />
+            </div>
+
+          </div>
         </section>
 
         {/* ══════════════════════════════════════════════════════
@@ -708,7 +806,7 @@ const heroBadgeStyle = {
 const heroH1Style = {
   fontFamily:theme.fonts.display,
   fontSize:"clamp(36px,4.5vw,60px)",
-  fontWeight:800, lineHeight:1.08, letterSpacing:"-1.5px",
+  fontWeight:800, lineHeight:1.05, letterSpacing:"-1.5px",
   color:C.dark, marginBottom:18, margin:"0 0 18px 0",
 };
 
@@ -738,6 +836,36 @@ const trustLineStyle = {
 };
 
 /* 📸 HERO PHOTO */
+/* ============================================================
+   🎬 VIDEO WRAPPER — Change video frame style here
+   ============================================================ */
+const videoWrapStyle = {
+  borderRadius:20, overflow:"hidden", position:"relative",
+  boxShadow:"0 20px 60px rgba(0,0,0,0.12)",
+  background:C.bg2,
+};
+
+const videoBadgeStyle = {
+  position:"absolute", top:12, left:12, zIndex:10,
+  background:"rgba(255,255,255,0.92)", backdropFilter:"blur(8px)",
+  borderRadius:9999, padding:"5px 12px",
+  fontSize:11, fontWeight:600, color:C.text,
+  display:"flex", alignItems:"center", gap:4,
+  boxShadow:"0 2px 8px rgba(0,0,0,0.1)",
+};
+
+/* 🎬 VIDEO ELEMENT — Change height here (currently 280px) */
+const videoStyle = {
+  width:"100%", height:280, objectFit:"cover", display:"block", borderRadius:20,
+};
+
+/* 🎬 PLACEHOLDER — Shown when demo.mp4 is missing */
+const videoPlaceholderStyle = {
+  width:"100%", height:280, display:"flex", alignItems:"center",
+  justifyContent:"center", background:C.bg2, borderRadius:20,
+  position:"relative", overflow:"hidden",
+};
+
 const heroPhotoWrapStyle = {
   borderRadius:20, overflow:"hidden", position:"relative",
   boxShadow:"0 20px 60px rgba(0,0,0,0.12)",
@@ -792,6 +920,74 @@ const tickerItemStyle = {
 };
 
 /* 📊 STATS */
+
+/* ============================================================
+   🎬 VIDEO SECTION STYLES — Full-width section between hero and stats
+   Change background, padding, layout here
+   ============================================================ */
+const videoSectionStyle = {
+  background:   C.bg2,
+  padding:      "72px 5%",
+  borderTop:    `1px solid ${C.border}`,
+  borderBottom: `1px solid ${C.border}`,
+};
+
+const videoSectionInnerStyle = {
+  display:             "grid",
+  gridTemplateColumns: "1fr 1.6fr",
+  gap:                 56,
+  alignItems:          "center",
+  maxWidth:            1080,
+  margin:              "0 auto",
+};
+
+const videoSectionLeftStyle = {
+  display:       "flex",
+  flexDirection: "column",
+  gap:           0,
+};
+
+/* 🎨 VIDEO SECTION TITLE — Change font size here */
+const videoSectionTitleStyle = {
+  fontFamily:   theme.fonts.display,
+  fontSize:     "clamp(22px,3vw,36px)",
+  fontWeight:   800,
+  color:        C.dark,
+  lineHeight:   1.15,
+  letterSpacing:"-0.5px",
+  marginBottom: 28,
+  margin:       "0 0 28px 0",
+};
+
+const videoStepRowStyle = {
+  display:      "flex",
+  alignItems:   "flex-start",
+  gap:          14,
+  marginBottom: 16,
+};
+
+const videoStepNumStyle = {
+  fontFamily:  theme.fonts.display,
+  fontSize:    11,
+  fontWeight:  800,
+  color:       C.primary,
+  background:  C.primaryL,
+  borderRadius:9999,
+  padding:     "3px 10px",
+  flexShrink:  0,
+  letterSpacing:"1px",
+  marginTop:   2,
+};
+
+/* 🎨 VIDEO PLAYER WRAP — Change border, shadow, radius here */
+const videoPlayerWrapStyle = {
+  borderRadius: 20,
+  overflow:     "hidden",
+  position:     "relative",
+  boxShadow:    "0 24px 64px rgba(0,0,0,0.12)",
+  background:   C.bg,
+};
+
 const statsSectionStyle = {
   background:C.bg2, borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}`,
   padding:"48px 5%",
@@ -839,7 +1035,7 @@ const sectionLabelStyle = {
 const sectionTitleStyle = {
   fontFamily:theme.fonts.display,
   fontSize:"clamp(24px,3.5vw,42px)",
-  fontWeight:800, color:C.dark, lineHeight:1.2,
+  fontWeight:800, color:C.dark, lineHeight:1.1,
   letterSpacing:"-0.5px", marginBottom:48,
   margin:"0 0 48px 0",
 };
