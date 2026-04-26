@@ -45,7 +45,7 @@ export const theme = {
      To swap: change the Google Fonts import in index.html too
      ============================================================ */
   fonts: {
-    display: "'Syne', sans-serif",    // headings, big numbers
+    display: "'Fraunces', serif",    // headings, big numbers
     body:    "'DM Sans', sans-serif", // body text, labels, inputs
   },
 
