@@ -363,7 +363,7 @@ export default function Landing() {
                   🎨 HERO HEADLINE — Change main headline text here
                   ============================================================ */}
               <h1 style={heroH1Style} className="wu-2">
-                The right volunteer.<br/>
+                The Right Volunteer.<br/>
                 <span style={{ color:C.primary }}>Right when it matters.</span>
               </h1>
 
@@ -514,7 +514,7 @@ export default function Landing() {
               {/* Video badge */}
               <div style={videoBadgeStyle}>
                 <span style={{ width:7, height:7, borderRadius:"50%", background:"#ef4444", animation:"blink 1.5s ease-in-out infinite", display:"inline-block" }}/>
-                &nbsp; Live demo — 30 sec loop
+                &nbsp; Demo
               </div>
               {/* ============================================================
                   🎬 VIDEO — drops demo.mp4 from /public automatically
@@ -856,7 +856,7 @@ const videoBadgeStyle = {
 
 /* 🎬 VIDEO ELEMENT — Change height here (currently 280px) */
 const videoStyle = {
-  width:"100%", height:280, objectFit:"cover", display:"block", borderRadius:20,
+  width:"100%", height:290, objectFit:"cover", display:"block", borderRadius:20,
 };
 
 /* 🎬 PLACEHOLDER — Shown when demo.mp4 is missing */
