@@ -8,8 +8,8 @@ Built for **GDG Solution Challenge 2026** | Problem Statement: Smart Resource Al
 
 ## 🔗 Links
 
-- **Live App:** [your-app.web.app](https://your-app.web.app)
-- **Demo Video:** [YouTube / Drive link]
+- **Live App:** https://volunteer-connect-e8b26.web.app/
+- **Demo Video:** https://drive.google.com/file/d/1i8NBdNxKIFWvVTRQNk2RRgO5kVOouhE2/view?usp=sharing
 
 ---
 
