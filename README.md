@@ -44,10 +44,10 @@ NGO workers describe a community need in plain text. Gemini AI reads it and auto
 
 | Name | Role |
 |------|------|
-| [Chaitali Rane] | Firebase + Database |
-| [Isha Rane] | Dashboard + Maps |
-| [Renuka Pillai] | UI + Forms |
-| [Vaishnavi Patil] | Gemini AI Integration |
+| Chaitali Rane | Firebase + Database |
+| Isha Rane | Dashboard + Maps |
+| Renuka Pillai | UI + Forms |
+| Vaishnavi Patil | Gemini AI Integration |
 
 ---
 
