@@ -1,16 +1,56 @@
-# React + Vite
+# Volunteer Connect 🌱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered platform that connects NGOs with the right volunteers — instantly.
 
-Currently, two official plugins are available:
+Built for **GDG Solution Challenge 2026** | Problem Statement: Smart Resource Allocation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🔗 Links
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Live App:** [your-app.web.app](https://your-app.web.app)
+- **Demo Video:** [YouTube / Drive link]
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💡 What it does
+
+NGO workers describe a community need in plain text. Gemini AI reads it and automatically extracts the category, urgency, required skills, and volunteer count. The need appears live on a dashboard with a Google Maps pin. A coordinator clicks "Find Volunteers" and Gemini returns a ranked list of best-matched volunteers with contact details — all in under 60 seconds.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React.js + Vite |
+| Database | Firebase Firestore |
+| Hosting | Firebase Hosting |
+| AI | Gemini API (gemini-2.0-flash) |
+| Maps | Google Maps JavaScript API |
+
+---
+
+## 📱 Pages
+
+- **Submit Need** — NGO submits free-text need → Gemini extracts structured data
+- **Dashboard** — Live need cards filtered by urgency + Google Maps view
+- **Volunteer Match** — AI-ranked volunteer list with match %, skills, contact info
+- **Register Volunteer** — Skill selection, availability, location saved to Firestore
+
+---
+
+## 👥 Team
+
+| Name | Role |
+|------|------|
+| [Chaitali Rane] | Firebase + Database |
+| [Isha Rane] | Dashboard + Maps |
+| [Renuka Pillai] | UI + Forms |
+| [Vaishnavi Patil] | Gemini AI Integration |
+
+---
+
+## 🌍 UN SDGs Addressed
+
+SDG 1 · SDG 3 · SDG 10 · SDG 11 · SDG 17
